@@ -8,21 +8,14 @@ import { ApiFetcher } from "../base";
 import { IFetcher } from "../contracts/entity-fetcher";
 import { IMovie, MovieDbArrayApiResponse } from "../types";
 
-class PopularMovieApiService
-  implements
-    IFetcher<
-      MovieDbSingleResponseDTO<IMovie>,
-      MovieDbMultiplyResponseDTO<IMovie>,
-      Partial<IMovie>
-    >
-{
-  constructor(
-    private movieApiService: IFetcher<
-      MovieDbSingleResponseDTO<IMovie>,
-      MovieDbMultiplyResponseDTO<IMovie>,
-      Partial<IMovie>
-    >
-  ) {}
+type IMovieFetcher = IFetcher<
+  MovieDbSingleResponseDTO<IMovie>,
+  MovieDbMultiplyResponseDTO<IMovie>,
+  Partial<IMovie>
+>;
+
+class PopularMovieApiService implements IMovieFetcher {
+  constructor(private movieApiService: IMovieFetcher) {}
 
   get(data?: Partial<IMovie>): Promise<MovieDbMultiplyResponseDTO<IMovie>> {
     return this.movieApiService.get(data ?? {});
