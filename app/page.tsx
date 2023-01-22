@@ -1,11 +1,13 @@
-import { popularMovieService } from "@/services/api";
+import { getTrendingAndPopularMovies } from "./(common)";
+import WelcomeSection from "./(components)/WelcomeSection";
 
 export default async function Home() {
-  const { data: movies } = await popularMovieService.get();
+  const { popularMovies, trendingMovies } = await getTrendingAndPopularMovies();
 
   return (
     <div className="padded-section">
-      {movies?.map((movie) => (
+      <WelcomeSection />
+      {trendingMovies?.map((movie) => (
         <div key={movie.id}>{movie.title}</div>
       ))}
     </div>

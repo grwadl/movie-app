@@ -1,9 +1,14 @@
+import {
+  MultipleFetchParams,
+  SingleFetchParams,
+} from "./entity-fetcher-params";
+
 export interface IMultiplyEntityFetcher<T, U> {
-  get: (data?: U) => Promise<T>;
+  get: (opt: MultipleFetchParams<U>) => Promise<T>;
 }
 
 export interface ISingleEntityFetcher<T> {
-  getOne: (id: string) => Promise<T>;
+  getOne: (opt: SingleFetchParams) => Promise<T>;
 }
 
 export type IFetcher<T, U, M = Partial<T>> = ISingleEntityFetcher<T> &

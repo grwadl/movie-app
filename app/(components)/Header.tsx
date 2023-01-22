@@ -5,7 +5,10 @@ import React from "react";
 type Props = React.HTMLAttributes<HTMLDivElement>;
 
 const Header = ({ className, ...props }: Props) => {
-  const headerClassnames = cls([" bg-dark-blue py-5 text-white", className]);
+  const headerClassnames = cls([
+    "z-[20] bg-dark-blue py-5 text-white",
+    className,
+  ]);
 
   return (
     <header {...props} className={headerClassnames}>

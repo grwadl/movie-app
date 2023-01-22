@@ -1,41 +1,45 @@
-import { queryTransformer } from "@/lib/query-transformer";
-import { MovieDbApiResponseAdapter } from "@/services/adapter/dbMovieAdapter";
 import {
   MovieDbMultiplyResponseDTO,
   MovieDbSingleResponseDTO,
 } from "@/services/adapter/types";
-import { ApiFetcher } from "../base";
-import { IFetcher } from "../contracts/entity-fetcher";
-import { IMovie, MovieDbArrayApiResponse } from "../types";
-
-type IMovieFetcher = IFetcher<
-  MovieDbSingleResponseDTO<IMovie>,
-  MovieDbMultiplyResponseDTO<IMovie>,
-  Partial<IMovie>
->;
+import {
+  IMultiplyEntityFetcher,
+  ISingleEntityFetcher,
+} from "../contracts/entity-fetcher";
+import {
+  MultipleFetchParams,
+  SingleFetchParams,
+} from "../contracts/entity-fetcher-params";
+import { IMovie } from "../types";
+import {
+  transformedMultiResponseFetcher,
+  transformedSingleResponseFetcher,
+} from "./common";
+import { IMovieFetcher } from "./types";
 
 class PopularMovieApiService implements IMovieFetcher {
-  constructor(private movieApiService: IMovieFetcher) {}
+  constructor(
+    private singleFetcher: ISingleEntityFetcher<
+      MovieDbSingleResponseDTO<IMovie>
+    >,
+    private multiFetcher: IMultiplyEntityFetcher<
+      MovieDbMultiplyResponseDTO<IMovie>,
+      Partial<IMovie>
+    >
+  ) {}
 
-  get(data?: Partial<IMovie>): Promise<MovieDbMultiplyResponseDTO<IMovie>> {
-    return this.movieApiService.get(data ?? {});
+  get(
+    opt: MultipleFetchParams<Partial<IMovie>>
+  ): Promise<MovieDbMultiplyResponseDTO<IMovie>> {
+    return this.multiFetcher.get(opt);
   }
 
-  getOne(id: string): Promise<MovieDbSingleResponseDTO<IMovie>> {
-    return this.movieApiService.getOne(id);
+  getOne(opt: SingleFetchParams): Promise<MovieDbSingleResponseDTO<IMovie>> {
+    return this.singleFetcher.getOne(opt);
   }
 }
 
-const movieService = new ApiFetcher<MovieDbArrayApiResponse<IMovie>, IMovie>(
-  queryTransformer,
-  process.env.API_URL + "/movie/popular"
-);
-
-const transformedResponseFetcher = new MovieDbApiResponseAdapter<
-  IMovie,
-  Partial<IMovie>
->(movieService);
-
 export const popularMovieService = new PopularMovieApiService(
-  transformedResponseFetcher
+  transformedSingleResponseFetcher,
+  transformedMultiResponseFetcher
 );
