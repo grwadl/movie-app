@@ -1,8 +1,14 @@
+import { cls } from "@/lib/classnames";
 import Link from "next/link";
+import React from "react";
 
-const Header = () => {
+type Props = React.HTMLAttributes<HTMLDivElement>;
+
+const Header = ({ className, ...props }: Props) => {
+  const headerClassnames = cls([" bg-dark-blue py-5 text-white", className]);
+
   return (
-    <header className="w-full bg-dark-blue py-5 text-white">
+    <header {...props} className={headerClassnames}>
       <div className="padded-section flex justify-between">
         <div className="nav-links flex items-center gap-4">
           <Link href="/" className="text-xl hover:text-gray-400 duration-300">
