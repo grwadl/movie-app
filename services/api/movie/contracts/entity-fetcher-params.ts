@@ -8,5 +8,6 @@ export type MultipleFetchParams<U> = {
 
 export type SingleFetchParams = {
   id: string;
+  data?: Record<string, any>;
   params?: RequestInit;
 };

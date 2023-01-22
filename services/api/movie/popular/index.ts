@@ -29,7 +29,7 @@ class PopularMovieApiService implements IMovieFetcher {
   ) {}
 
   get(
-    opt: MultipleFetchParams<Partial<IMovie>>
+    opt?: MultipleFetchParams<Partial<IMovie>>
   ): Promise<MovieDbMultiplyResponseDTO<IMovie>> {
     return this.multiFetcher.get(opt);
   }

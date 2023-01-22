@@ -1,3 +1,4 @@
+import { Environment } from "@/configs";
 import { IQueryTransformer } from "@/lib/query-transformer/types";
 import { getRequest } from "@/services/fetch";
 import type { ISingleEntityFetcher } from "../contracts/entity-fetcher";
@@ -11,6 +12,13 @@ export class SingleApiFetcher<M> implements ISingleEntityFetcher<M> {
 
   getOne(opt: SingleFetchParams): Promise<M> {
     const url = new URL(this.baseUrl + "/" + opt.id);
+    const query = this.queryTransformer.stringify({
+      ...(opt?.data ?? {}),
+      api_key: Environment.API_KEY,
+    });
+
+    const searchParams = query ? "?" + query : "";
+    url.search = searchParams;
 
     return getRequest<M>(url, opt.params);
   }

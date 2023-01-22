@@ -12,7 +12,7 @@ export class MultiApiFetcher<T extends Record<string, any>, U>
     private baseUrl: string
   ) {}
 
-  get(opt: MultipleFetchParams<U>): Promise<T> {
+  get(opt?: MultipleFetchParams<U>): Promise<T> {
     const query = this.queryTransformer.stringify({
       ...(opt?.data ?? {}),
       api_key: Environment.API_KEY,

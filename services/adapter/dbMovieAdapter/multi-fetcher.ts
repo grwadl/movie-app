@@ -16,7 +16,7 @@ export class MovieDbMultiApiFetcherAdapter
   ) {}
 
   async get(
-    opt: MultipleFetchParams<Partial<IMovie>>
+    opt?: MultipleFetchParams<Partial<IMovie>>
   ): Promise<MovieDbMultiplyResponseDTO<IMovie>> {
     const { results: data, ...meta } = await this.movieApiFetcher.get(opt);
     return { data, meta };

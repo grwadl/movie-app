@@ -4,7 +4,7 @@ import {
 } from "./entity-fetcher-params";
 
 export interface IMultiplyEntityFetcher<T, U> {
-  get: (opt: MultipleFetchParams<U>) => Promise<T>;
+  get: (opt?: MultipleFetchParams<U>) => Promise<T>;
 }
 
 export interface ISingleEntityFetcher<T> {
