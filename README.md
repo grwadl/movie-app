@@ -1,4 +1,4 @@
-This is clome of the https://www.themoviedb.org/.
+This is clone of the https://www.themoviedb.org/.
 Project isn't finished yet.
 
 **Stack of the technologies:**
