@@ -1,5 +1,6 @@
 import bgImage from "@/public/welcome.jpg";
 import Image from "next/image";
+import SearchRedirecter from "../main-page-welcome/SearchRedirecter";
 
 const WelcomeSection = () => {
   return (
@@ -17,6 +18,7 @@ const WelcomeSection = () => {
         <span className="text-2xl font-semibold text-white">
           Millions of movies, TV shows and people to discover. Explore now.
         </span>
+        <SearchRedirecter className="mt-10" />
       </div>
     </section>
   );

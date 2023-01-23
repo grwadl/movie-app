@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         "dark-blue": "var(--dark-blue)",
+        "green-blue": "var(--green-blue)",
       },
     },
   },
