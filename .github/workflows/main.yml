@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: "18.x"
       - name: Run tests
-        run: npm i && npm run test:e2e
+        run: npm i && npx playwright install-deps && npm run test:e2e
