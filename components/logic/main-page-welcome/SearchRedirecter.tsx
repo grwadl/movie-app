@@ -7,7 +7,7 @@ type Props = HTMLAttributes<HTMLDivElement>;
 
 const SearchRedirecter = (props: Props) => {
   const { push } = useRouter();
-  const onClickSearch = (search: string) => search && push("/search?" + search);
+  const onClickSearch = (search: string) => push("/search?query=" + search);
   return <SearchInput {...props} onClickSearch={onClickSearch} />;
 };
 

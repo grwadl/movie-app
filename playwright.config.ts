@@ -1,6 +1,7 @@
 import type { PlaywrightTestConfig } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
+  workers: 5,
   webServer: {
     command: "npm run dev",
     url: "http://localhost:3000",
