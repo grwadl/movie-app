@@ -1,6 +1,7 @@
 import { IMovie } from "@/services/api/movie/types";
 import Link from "next/link";
 import Card from "../../ui/card/Card";
+import MovieCardMenu from "./MovieCardMenu";
 
 const renderMovies = (movie: IMovie) => (
   <Link href={`/movie/${movie.id}`}>
@@ -9,6 +10,7 @@ const renderMovies = (movie: IMovie) => (
       className="basis-40 w-40 shrink-0 relative"
       key={movie.id}
     >
+      <MovieCardMenu />
       <div className="content p-2">
         <h5 className="card-title mt-4 text-base font-bold whitespace-nowrap text-ellipsis overflow-hidden">
           {movie.title}

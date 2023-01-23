@@ -15,11 +15,11 @@ export default async function Home() {
         renderFunc={renderMovies}
         className="flex overflow-x-scroll gap-5"
       />
-      <h4 className="text-xl font-semibold my-4">What&apos;s popular</h4>
+      <h4 className="text-xl mt-10 font-semibold my-4">What&apos;s popular</h4>
       <List
         list={popularMovies}
         renderFunc={renderMovies}
-        className="flex mt-10 overflow-x-scroll gap-5"
+        className="flex mt-5 overflow-x-scroll gap-5"
       />
     </div>
   );
