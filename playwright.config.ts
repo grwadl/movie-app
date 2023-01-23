@@ -1,4 +1,5 @@
-import type { PlaywrightTestConfig } from "@playwright/test";
+import type { PlaywrightTestConfig } from "@playwright/experimental-ct-react";
+import { resolve } from "path";
 
 const config: PlaywrightTestConfig = {
   workers: 5,
@@ -11,6 +12,14 @@ const config: PlaywrightTestConfig = {
   use: {
     baseURL: "http://localhost:3000",
     headless: true,
+    ctPort: 3100,
+    ctViteConfig: {
+      resolve: {
+        alias: {
+          "@": resolve(__dirname),
+        },
+      },
+    },
   },
 };
 export default config;

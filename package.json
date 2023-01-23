@@ -7,10 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:e2e": "playwright test",
+    "test": "playwright test",
     "format": "prettier --write .",
-    "prepare": "husky install",
-    "test-ct": "playwright test -c playwright-ct.config.ts"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@next/font": "13.1.3",
