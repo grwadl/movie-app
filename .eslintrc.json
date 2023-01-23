@@ -3,8 +3,7 @@
   "extends": [
     "next/core-web-vitals",
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
     "prefer-const": "error",
