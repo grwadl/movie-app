@@ -16,4 +16,5 @@ This is clone of the https://www.themoviedb.org/.
 
 **Common**
 - CI/CD - Github Actions
+- Lint/Formatting - ESlint/Prettier
 - Testing - Playwright
