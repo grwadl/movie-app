@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: "18.x"
       - name: Run tests
-        run: npm i && npm run test
+        run: npm i && npx playwright install && npm run test
