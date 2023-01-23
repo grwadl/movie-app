@@ -1,3 +1,4 @@
+import { Environment } from "@/configs";
 import type { MultiApiFetcher } from "@/services/api/movie/base";
 import { IMultiplyEntityFetcher } from "@/services/api/movie/contracts/entity-fetcher";
 import { MultipleFetchParams } from "@/services/api/movie/contracts/entity-fetcher-params";
@@ -18,7 +19,13 @@ export class MovieDbMultiApiFetcherAdapter
   async get(
     opt?: MultipleFetchParams<Partial<IMovie>>
   ): Promise<MovieDbMultiplyResponseDTO<IMovie>> {
-    const { results: data, ...meta } = await this.movieApiFetcher.get(opt);
+    const { results, ...meta } = await this.movieApiFetcher.get(opt);
+
+    const data = results.map((it) => ({
+      ...it,
+      poster_path: Environment.IMG_PATH + it.poster_path,
+    }));
+
     return { data, meta };
   }
 }
