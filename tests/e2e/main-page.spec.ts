@@ -6,5 +6,5 @@ test("it should load main page with the title", async ({ page }) => {
 
   await page.goto(Environment.APP_URL);
 
-  await expect(page.locator("h4")).toContainText("What's popular");
+  await expect(page.locator("h4").first()).toContainText("Trending");
 });
