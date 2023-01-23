@@ -11,8 +11,7 @@ const config: PlaywrightTestConfig = {
   },
   use: {
     baseURL: "http://localhost:3000",
-    headless: true,
-    ctPort: 3100,
+    headless: false,
     ctViteConfig: {
       resolve: {
         alias: {
