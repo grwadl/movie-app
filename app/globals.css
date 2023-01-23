@@ -13,6 +13,19 @@
   --green-blue: #30d5c8;
 }
 
+*::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: lightgray;
+}
+
 .padded-section {
   max-width: 1200px;
   margin-left: auto;
