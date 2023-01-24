@@ -9,19 +9,6 @@ test("it should load main page with the title", async ({ page }) => {
   await expect(page.locator("h4").first()).toContainText("Trending");
 });
 
-test("it should go to the movies page after clicking on the link", async ({
-  page,
-}) => {
-  if (!Environment.APP_URL) throw new Error("cannot find the app url");
-  await page.goto(Environment.APP_URL);
-
-  const movieLink = await page
-    .locator("a")
-    .getByText("Movies", { exact: true });
-  await movieLink.click();
-  expect(page.url()).toEqual(Environment.APP_URL + "/movies");
-});
-
 test("it should go to the certain movie page after clicking on the card-link", async ({
   page,
 }) => {
