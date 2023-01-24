@@ -27,6 +27,7 @@ function SearchInput(props: Props) {
         type="search"
       />
       <Button
+        role="search"
         onClick={clickHandler}
         className="absolute right-0 top-0 h-full w-24 text-white bg-green-blue"
         type="button"
