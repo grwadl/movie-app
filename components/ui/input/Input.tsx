@@ -1,10 +1,14 @@
 import { cls } from "@/lib/classnames";
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, InputHTMLAttributes } from "react";
 
-type Props = HTMLAttributes<HTMLInputElement>;
+type Props = HTMLAttributes<HTMLInputElement> &
+  InputHTMLAttributes<HTMLInputElement>;
 
 const Input = ({ className, ...props }: Props) => {
-  const classNames = cls(["rounded-lg bg-white text text-gray-500", className]);
+  const classNames = cls([
+    "rounded-3xl bg-white text text-gray-500",
+    className,
+  ]);
 
   return <input {...props} className={classNames} />;
 };

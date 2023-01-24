@@ -9,16 +9,17 @@ export default async function Home() {
   return (
     <div className="padded-section">
       <WelcomeSection />
-      <h4 className="text-xl font-semibold my-4">What&apos;s popular</h4>
+      <h4 className="text-xl font-semibold my-4">Trending</h4>
       <List
         list={trendingMovies}
         renderFunc={renderMovies}
         className="flex overflow-x-scroll gap-5"
       />
+      <h4 className="text-xl mt-10 font-semibold my-4">What&apos;s popular</h4>
       <List
         list={popularMovies}
         renderFunc={renderMovies}
-        className="flex overflow-x-scroll gap-5"
+        className="flex mt-5 overflow-x-scroll gap-5"
       />
     </div>
   );
