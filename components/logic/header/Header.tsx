@@ -14,7 +14,10 @@ const Header = ({ className, ...props }: Props) => {
     <header {...props} className={headerClassnames}>
       <div className="padded-section flex justify-between">
         <div className="nav-links flex items-center gap-4">
-          <Link href="/" className="text-xl hover:text-gray-400 duration-300">
+          <Link
+            href="/"
+            className="text-xl hover:text-gray-400 font-bold duration-300"
+          >
             MoviesDB
           </Link>
           <Link href="/movies" className="hover:text-gray-400 duration-300">
