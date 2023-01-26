@@ -4,7 +4,7 @@ import Card from "../../ui/card/Card";
 import MovieCardMenu from "./MovieCardMenu";
 
 const renderMovies = (movie: IMovie) => (
-  <Link href={`/movie/${movie.id}`}>
+  <Link key={movie.id} href={`/movie/${movie.id}`}>
     <Card
       img={movie.poster_path}
       className="basis-40 w-40 shrink-0 relative"
