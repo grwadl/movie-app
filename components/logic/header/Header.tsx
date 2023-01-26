@@ -1,28 +1,9 @@
 import { cls } from "@/lib/classnames";
 import Link from "next/link";
 import React from "react";
+import { links } from "./mock/links";
 
 type Props = React.HTMLAttributes<HTMLDivElement>;
-
-const links: { href: string; value: string; className?: string }[] = [
-  {
-    href: "/",
-    value: "MoviesDB",
-    className: "font-bold",
-  },
-  {
-    href: "/movie",
-    value: "Movies",
-  },
-  {
-    href: "/tv-shows",
-    value: "Tv Shows",
-  },
-  {
-    href: "/people",
-    value: "People",
-  },
-];
 
 const Header = ({ className, ...props }: Props) => {
   const headerClassnames = cls([
