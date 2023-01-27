@@ -1,1 +1,1 @@
-export * from "./popular-movies-pagination";
+export * from "./popular-movies/popular-movies-pagination";

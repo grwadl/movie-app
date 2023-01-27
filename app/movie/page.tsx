@@ -1,28 +1,10 @@
-"use client";
-import Button from "@/components/ui/button/Button";
-import { usePopularMovies } from "@/store";
-import { useEffect } from "react";
+import MovieInfiniteList from "./MovieInfiniteList";
 
 function MoviesPage() {
-  const { meta, movies, changePage, fetchNewMovies, clear } =
-    usePopularMovies();
-
-  useEffect(() => {
-    fetchNewMovies?.();
-
-    return () => {
-      clear();
-    };
-  }, [meta?.page]);
-
-  if (!movies?.length) return <div>Loading</div>;
-
   return (
-    <div className="padded-section mt-4">
-      <Button onClick={() => changePage({ page: (meta?.page ?? 1) + 1 })}>
-        Load More
-      </Button>
-    </div>
+    <main className="padded-section h-full">
+      <MovieInfiniteList />
+    </main>
   );
 }
 

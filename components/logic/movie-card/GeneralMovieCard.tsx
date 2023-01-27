@@ -2,9 +2,9 @@ import { IMovie } from "@/services/api/movie/types";
 import Link from "next/link";
 import MovieCard from "./MovieCard";
 
-const renderBigMovies = (movie: IMovie) => (
+const renderMovies = (movie: IMovie) => (
   <Link
-    className="w-full sm:max-w-[calc((100%_/_3)_-_1.25rem)] md:max-w-[calc(25%_-_1.25rem)] lg:max-w-[calc(20%_-_1.25rem)] shrink-1 grow-1"
+    className="block basis-60 grow-0 shrink-0"
     key={movie.id}
     href={`/movie/${movie.id}`}
   >
@@ -12,4 +12,4 @@ const renderBigMovies = (movie: IMovie) => (
   </Link>
 );
 
-export default renderBigMovies;
+export default renderMovies;

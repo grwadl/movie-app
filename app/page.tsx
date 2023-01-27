@@ -1,4 +1,4 @@
-import renderMovies from "@/components/logic/movie-card/MovieCard";
+import renderMovies from "@/components/logic/movie-card/GeneralMovieCard";
 import List from "@/components/ui/list/List";
 import WelcomeSection from "../components/logic/welcome-section/WelcomeSection";
 import { getTrendingAndPopularMovies } from "./fetch-data";

@@ -1,23 +1,25 @@
+import Card from "@/components/ui/card/Card";
 import { IMovie } from "@/services/api/movie/types";
-import Link from "next/link";
-import Card from "../../ui/card/Card";
 import MovieCardMenu from "./MovieCardMenu";
 
-const renderMovies = (movie: IMovie) => (
-  <Link key={movie.id} href={`/movie/${movie.id}`}>
+type Props = IMovie;
+
+const MovieCard = ({ poster_path, id, title }: Props) => {
+  return (
     <Card
-      img={movie.poster_path}
-      className="basis-40 w-40 shrink-0 relative"
-      key={movie.id}
+      img={poster_path}
+      className="relative w-full overflow-hidden"
+      imgClassNames="h-[380px] w-full"
+      key={id + title}
     >
       <MovieCardMenu />
-      <div className="content p-2">
-        <h5 className="card-title mt-4 text-base font-bold whitespace-nowrap text-ellipsis overflow-hidden">
-          {movie.title}
+      <div className="content mt-4 p-2 min-w-0 truncate">
+        <h5 className="card-title inline min-w-0 w-full text-base font-bold">
+          {title}
         </h5>
       </div>
     </Card>
-  </Link>
-);
+  );
+};
 
-export default renderMovies;
+export default MovieCard;
