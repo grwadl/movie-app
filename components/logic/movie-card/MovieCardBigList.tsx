@@ -16,8 +16,8 @@ const renderBigMovies = (movie: IMovie) => (
       key={movie.id}
     >
       <MovieCardMenu />
-      <div className="content p-2 min-w-0 truncate">
-        <h5 className="card-title inline mt-4 min-w-0 w-full text-base font-bold">
+      <div className="content mt-4 p-2 min-w-0 truncate">
+        <h5 className="card-title inline min-w-0 w-full text-base font-bold">
           {movie.title}
         </h5>
       </div>
