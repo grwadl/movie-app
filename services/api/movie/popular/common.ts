@@ -6,6 +6,7 @@ import {
 } from "@/services/adapter/dbMovieAdapter";
 import { MultiApiFetcher, SingleApiFetcher } from "../base";
 import {
+  IDefaultSearchParams,
   IMovie,
   MovieDbArrayApiResponse,
   MovieDbSingleApiResponse,
@@ -13,7 +14,7 @@ import {
 
 const movieMultiFetcherService = new MultiApiFetcher<
   MovieDbArrayApiResponse<IMovie>,
-  IMovie
+  IDefaultSearchParams
 >(queryTransformer, Environment.API_URL + "/movie/popular");
 
 const movieSingleFetcherService = new SingleApiFetcher<

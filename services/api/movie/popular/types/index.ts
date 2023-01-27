@@ -8,5 +8,5 @@ import { IMovie } from "../../types";
 export type IMovieFetcher = IFetcher<
   MovieDbSingleResponseDTO<IMovie>,
   MovieDbMultiplyResponseDTO<IMovie>,
-  Partial<IMovie>
+  Record<string, string>
 >;
