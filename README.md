@@ -5,7 +5,7 @@ This is clone of the https://www.themoviedb.org/.
 ## Stack of the technologies:
 
 **Frontend**
-- Next.js
+- Next.js 13
 - Typescript
 - Tailwind
 - Zustand
