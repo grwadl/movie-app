@@ -1,5 +1,5 @@
+import Footer from "@/components/ui/footer/Footer";
 import { Montserrat } from "@next/font/google";
-import Footer from "../components/logic/footer/Footer";
 import Header from "../components/logic/header/Header";
 import "./globals.css";
 

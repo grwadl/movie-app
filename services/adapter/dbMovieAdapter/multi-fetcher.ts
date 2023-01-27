@@ -7,17 +7,20 @@ import { MovieDbMultiplyResponseDTO } from "../types";
 
 export class MovieDbMultiApiFetcherAdapter
   implements
-    IMultiplyEntityFetcher<MovieDbMultiplyResponseDTO<IMovie>, Partial<IMovie>>
+    IMultiplyEntityFetcher<
+      MovieDbMultiplyResponseDTO<IMovie>,
+      Record<string, string>
+    >
 {
   constructor(
     private movieApiFetcher: MultiApiFetcher<
       MovieDbArrayApiResponse<IMovie>,
-      Partial<IMovie>
+      Record<string, string>
     >
   ) {}
 
   async get(
-    opt?: MultipleFetchParams<Partial<IMovie>>
+    opt?: MultipleFetchParams<Record<string, string>>
   ): Promise<MovieDbMultiplyResponseDTO<IMovie>> {
     const { results, ...meta } = await this.movieApiFetcher.get(opt);
 

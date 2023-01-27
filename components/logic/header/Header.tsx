@@ -1,6 +1,7 @@
 import { cls } from "@/lib/classnames";
 import Link from "next/link";
 import React from "react";
+import { links } from "./mock/links";
 
 type Props = React.HTMLAttributes<HTMLDivElement>;
 
@@ -14,18 +15,18 @@ const Header = ({ className, ...props }: Props) => {
     <header {...props} className={headerClassnames}>
       <div className="padded-section flex justify-between">
         <div className="nav-links flex items-center gap-4">
-          <Link href="/" className="text-xl hover:text-gray-400 duration-300">
-            MoviesDB
-          </Link>
-          <Link href="/movies" className="hover:text-gray-400 duration-300">
-            Movies
-          </Link>
-          <Link href="/movies" className="hover:text-gray-400 duration-300">
-            Tv Shows
-          </Link>
-          <Link href="/movies" className="hover:text-gray-400 duration-300">
-            People
-          </Link>
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              className={cls([
+                "hover:text-gray-400 duration-300",
+                link.className,
+              ])}
+              href={link.href}
+            >
+              {link.value}
+            </Link>
+          ))}
         </div>
       </div>
     </header>

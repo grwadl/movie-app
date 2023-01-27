@@ -4,6 +4,7 @@ import { getRequest } from "@/services/fetch";
 import type { IMultiplyEntityFetcher } from "../contracts/entity-fetcher";
 import { MultipleFetchParams } from "../contracts/entity-fetcher-params";
 
+// eslint-disable-next-line
 export class MultiApiFetcher<T extends Record<string, any>, U>
   implements IMultiplyEntityFetcher<T, U>
 {
@@ -17,7 +18,9 @@ export class MultiApiFetcher<T extends Record<string, any>, U>
       ...(opt?.data ?? {}),
       api_key: Environment.API_KEY,
     });
+
     const searchParams = query ? "?" + query : "";
+
     const url = new URL(opt?.common?.overrideUrl ?? this.baseUrl);
     url.search = searchParams;
 

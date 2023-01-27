@@ -4,11 +4,11 @@ import SearchRedirecter from "../main-page-welcome/SearchRedirecter";
 
 const WelcomeSection = () => {
   return (
-    <section className="welcome-section relative">
-      <div className="img-bg-wrap absolute top-0 left-0 w-full max-h-full z-[-1] overflow-hidden">
+    <section className="welcome-section relative h-80">
+      <div className="img-bg-wrap absolute top-0 left-0 h-full w-full z-[-1] overflow-hidden">
         <Image
           src={bgImage}
-          className="w-full max-h-full object-cover"
+          className="w-full h-full object-cover"
           alt="background"
           placeholder="blur"
         />
