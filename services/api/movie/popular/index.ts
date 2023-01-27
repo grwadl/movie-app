@@ -24,12 +24,12 @@ class PopularMovieApiService implements IMovieFetcher {
     >,
     private multiFetcher: IMultiplyEntityFetcher<
       MovieDbMultiplyResponseDTO<IMovie>,
-      Partial<IMovie>
+      Record<string, string>
     >
   ) {}
 
   get(
-    opt?: MultipleFetchParams<Partial<IMovie>>
+    opt?: MultipleFetchParams<Record<string, string>>
   ): Promise<MovieDbMultiplyResponseDTO<IMovie>> {
     return this.multiFetcher.get(opt);
   }
