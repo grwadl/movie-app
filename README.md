@@ -8,6 +8,7 @@ This is clone of the https://www.themoviedb.org/.
 - Next.js
 - Typescript
 - Tailwind
+- Zustand
 
 **Backend**
 - Next.js API routes
