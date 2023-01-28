@@ -6,7 +6,7 @@ import { IMovie, MovieDbArrayApiResponse } from "../types";
 
 const multiFetcher = new MultiApiFetcher<
   MovieDbArrayApiResponse<IMovie>,
-  IMovie
+  Record<string, string>
 >(queryTransformer, Environment.API_URL + "/trending/movie");
 
 export const transformedTrendingMovieFetcher =

@@ -6,17 +6,20 @@ import { transformedTrendingMovieFetcher } from "./common";
 
 class TrendingMoviesService
   implements
-    IMultiplyEntityFetcher<MovieDbMultiplyResponseDTO<IMovie>, Partial<IMovie>>
+    IMultiplyEntityFetcher<
+      MovieDbMultiplyResponseDTO<IMovie>,
+      Record<string, string>
+    >
 {
   constructor(
     private fetcher: IMultiplyEntityFetcher<
       MovieDbMultiplyResponseDTO<IMovie>,
-      Partial<IMovie>
+      Record<string, string>
     >
   ) {}
 
   get(
-    opt: MultipleFetchParams<Partial<IMovie>>
+    opt?: MultipleFetchParams<Record<string, string>>
   ): Promise<MovieDbMultiplyResponseDTO<IMovie>> {
     return this.fetcher.get(opt);
   }
