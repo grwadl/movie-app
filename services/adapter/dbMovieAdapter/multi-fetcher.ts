@@ -27,6 +27,7 @@ export class MovieDbMultiApiFetcherAdapter
     const data = results.map((it) => ({
       ...it,
       poster_path: Environment.IMG_PATH + it.poster_path,
+      backdrop_path: Environment.IMG_PATH + it.backdrop_path,
     }));
 
     return { data, meta };

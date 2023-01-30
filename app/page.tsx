@@ -19,7 +19,7 @@ export default async function Home() {
       <List
         list={popularMovies}
         renderFunc={renderMovies}
-        className="flex mt-5 overflow-x-scroll gap-5"
+        className="flex my-5 overflow-x-scroll gap-5"
       />
     </div>
   );

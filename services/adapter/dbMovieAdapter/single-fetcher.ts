@@ -1,3 +1,4 @@
+import { Environment } from "@/configs";
 import type { SingleApiFetcher } from "@/services/api/movie/base";
 import { ISingleEntityFetcher } from "@/services/api/movie/contracts/entity-fetcher";
 import { SingleFetchParams } from "@/services/api/movie/contracts/entity-fetcher-params";
@@ -14,7 +15,13 @@ export class MovieDbSingleApiFetcherAdapter
   async getOne(
     opt: SingleFetchParams
   ): Promise<MovieDbSingleResponseDTO<IMovie>> {
-    const data = await this.movieApiFetcher.getOne(opt);
+    let data = await this.movieApiFetcher.getOne(opt);
+    data = {
+      ...data,
+      poster_path: Environment.IMG_PATH + data.poster_path,
+      backdrop_path: Environment.IMG_PATH + data.backdrop_path,
+    };
+
     return { data };
   }
 }

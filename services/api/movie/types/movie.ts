@@ -8,4 +8,5 @@ export type IMovie = {
   title: string;
   backdrop_path: string;
   vote_average: number;
+  genres: { id: number; name: string }[];
 };
